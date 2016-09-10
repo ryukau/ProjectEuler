@@ -156,10 +156,29 @@ class BigNum {
 
   static toString(n) {
     var str = ""
-    n.reverse()
-    for (var i = 0; i < n.length; ++i) {
+    for (var i = n.length - 1; i >= 0; --i) {
       str += n[i]
     }
     return str
+  }
+
+  static isPalindrome(n) {
+    var half = Math.floor(n.length / 2)
+    var right = n.length - 1
+    for (var left = 0; left < half; ++left) {
+      if (n[left] !== n[right]) {
+        return false
+      }
+      --right
+    }
+    return true
+  }
+
+  static sumDigits(n) {
+    var sum = 0
+    for (var i = 0; i < n.length; ++i) {
+      sum += n[i]
+    }
+    return sum
   }
 }

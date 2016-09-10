@@ -153,3 +153,31 @@ function format2D(array) {
   }
   return formated
 }
+
+// 回文数判定。
+function isPalindrome(n) {
+  var reversed = 0
+  var radix = 10
+  var m = n
+  while (n !== 0) {
+    reversed = radix * reversed + n % radix
+    n = Math.floor(n / radix)
+  }
+  if (reversed === m) {
+    return true
+  }
+  return false
+}
+
+// 桁数。
+function digits(n) {
+  if (isNaN(n)) {
+    return null
+  }
+  var d = 0
+  while(n !== 0) {
+    ++d
+    n = Math.floor(n / 10)
+  }
+  return d
+}
