@@ -76,7 +76,7 @@ function binomialCoefficient(n, k) {
   }
   return r
 }
-var combination = binomialCoefficient
+// var combination = binomialCoefficient
 
 // 最大公約数。
 function gcd(m, n) {
