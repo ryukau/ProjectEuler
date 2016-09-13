@@ -30,19 +30,9 @@ function nextPrime(n) {
   return n
 }
 
-// 三角数。
-function triangleNumber(n) {
-  return n * (n + 1) / 2
-}
-
-// 五角数。
-function pentagonalNumber(n) {
-  return n * (3 * n - 1) / 2
-}
-
-// 六角数
-function hexagonalNumber(n) {
-  return n * (2 * n - 1)
+// 多角数。
+function polygonalNumber(poly, n) {
+  return n * ((poly - 2) * n + (4 - poly)) / 2
 }
 
 // 約数を見つける。
@@ -175,7 +165,7 @@ function digits(n) {
     return null
   }
   var d = 0
-  while(n !== 0) {
+  while (n !== 0) {
     ++d
     n = Math.floor(n / 10)
   }
