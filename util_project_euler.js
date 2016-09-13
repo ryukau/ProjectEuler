@@ -30,6 +30,15 @@ function nextPrime(n) {
   return n
 }
 
+// 総和。
+function sum(array) {
+  var summation = 0
+  for (var i = 0; i < array.length; ++i) {
+    summation += array[i]
+  }
+  return summation
+}
+
 // 多角数。
 function polygonalNumber(poly, n) {
   return n * ((poly - 2) * n + (4 - poly)) / 2
