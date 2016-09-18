@@ -31,12 +31,12 @@ function nextPrime(n) {
 }
 
 // 総和。
-function sum(array) {
-  var summation = 0
+function summation(array) {
+  var sum = 0
   for (var i = 0; i < array.length; ++i) {
-    summation += array[i]
+    sum += array[i]
   }
-  return summation
+  return sum
 }
 
 // 多角数。

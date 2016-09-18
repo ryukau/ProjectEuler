@@ -29,6 +29,9 @@ function fraction(numerator, denominator, digit) {
   return real
 }
 
+// 1 / n の実数表示の繰り返しを調べる関数。
+// 例えば 1 / 7 = 0.(142857) となり、(142857)が繰り返す。
+// denominator は 繰り返しが始まる場所を探すために使う。
 function findRecursion(n, denominator) {
   var denomLength = new String(denominator).length + 1
   if (n.length <= denomLength) {

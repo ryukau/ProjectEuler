@@ -104,6 +104,7 @@ class BigNum {
 
   // Less Than (a < b)
   static lt(a, b) {
+debugger
     if (a.length < b.length) {
       return true
     }
@@ -111,9 +112,8 @@ class BigNum {
       return false
     }
 
-    var i = a.length - 1
-    while (a[i] === b[i]) {
-      --i
+    for (var i = a.length - 1; i > 0; --i) {
+      if (a[i] !== b[i]) break
     }
     if (a[i] < b[i]) {
       return true
@@ -130,9 +130,8 @@ class BigNum {
       return false
     }
 
-    var i = a.length - 1
-    while (a[i] === b[i]) {
-      --i
+    for (var i = a.length - 1; i > 0; --i) {
+      if (a[i] !== b[i]) break
     }
     if (a[i] > b[i]) {
       return true
