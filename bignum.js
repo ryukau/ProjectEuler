@@ -104,7 +104,6 @@ class BigNum {
 
   // Less Than (a < b)
   static lt(a, b) {
-debugger
     if (a.length < b.length) {
       return true
     }

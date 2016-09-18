@@ -127,6 +127,67 @@ function listCombination(array) {
   return list
 }
 
+// array から k 取り出すときの組み合わせすべて。
+function combination(array, k) {
+  var indices = new Array(k)
+  for (var i = 0; i < indices.length; ++i) {
+    indices[i] = i
+  }
+  indices.push(array.length)
+
+  var last = indices.length - 1
+  var start = indices.length - 2
+  var c = [array.slice(0, k)]
+  var end = array.length - k
+  while (indices[0] < end) {
+    for (var i = start; i >= 0; --i) {
+      var next = indices[i] + 1
+      if (next < indices[i + 1]) {
+        indices[i] = next
+        for (var j = i + 1; j < last; ++j) {
+          indices[j] = indices[j - 1] + 1
+        }
+        break
+      }
+    }
+
+    var list = new Array(k)
+    for (var i = 0; i < list.length; ++i) {
+      list[i] = array[indices[i]]
+    }
+    c.push(list)
+  }
+  return c
+}
+
+// [0, 1, 2, 3, ..., n - 1] という順列から k 取り出すときの組み合わせすべて。
+function listCombinationIndices(n, k) {
+  var indices = new Array(k)
+  for (var i = 0; i < indices.length; ++i) {
+    indices[i] = i
+  }
+  indices.push(n)
+
+  var last = indices.length - 1
+  var start = indices.length - 2
+  var c = [indices.slice(0, last)]
+  var end = n - k
+  while (indices[0] < end) {
+    for (var i = start; i >= 0; --i) {
+      var next = indices[i] + 1
+      if (next < indices[i + 1]) {
+        indices[i] = next
+        for (var j = i + 1; j < last; ++j) {
+          indices[j] = indices[j - 1] + 1
+        }
+        break
+      }
+    }
+    c.push(indices.slice(0, last))
+  }
+  return c
+}
+
 // [1, 2, 3, ... ]というフォーマットの配列を 123... に変換。
 function format1D(array) {
   var sum = 0
