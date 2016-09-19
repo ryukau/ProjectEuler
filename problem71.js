@@ -3,7 +3,7 @@
 const LIMIT = 3 / 7 // 0.42857142857142855
 
 function find(d) {
-  var start = Math.ceil(d * LIMIT)
+  var start = Math.ceil(d * LIMIT) // ほぼ正解。Math.floor((d * 3 - 1) / 7)
   for (var n = start; n > 0; --n) {
     if (gcd(n, d) === 1) {
       var fraction = n / d
@@ -18,7 +18,7 @@ function find(d) {
 var maxValue = 0
 var numer = 0
 var index = 0
-for (var d = 2; d <= 1000000; ++d) {
+for (var d = 2; d <= 1000000; ++d) { // 降順にして差分を記録することでもっと早くなる。
   var nearest = find(d)
   if (nearest !== null && nearest[0] > maxValue) {
     maxValue = nearest[0]
