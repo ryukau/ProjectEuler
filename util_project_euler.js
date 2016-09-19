@@ -241,3 +241,17 @@ function digits(n) {
   }
   return d
 }
+
+// オイラーのトーシェント関数。
+function totient(n) {
+  var divisor = findDivisor(n)
+  if (divisor.length <= 0) {
+    return n - 1
+  }
+  var primes = divisor.filter((element) => isPrime(element))
+  var product = n
+  for (var i = 0; i < primes.length; ++i) {
+    product *= (1 - 1 / primes[i])
+  }
+  return Math.round(product)
+}
